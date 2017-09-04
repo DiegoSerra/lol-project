@@ -6,3 +6,4 @@ Already working with rate limit: 20 request/s
 
 Tested endpoints with POSTMAN
 
+Without Refactoring
