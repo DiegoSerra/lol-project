@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Diego S">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>LoL</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/angucomplete-alt.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>	
+	<script src="js/angular.min.js"></script>
+	<script src="js/angucomplete-alt.js"></script>
+	<script src="js/angular-route.min.js"></script>	
+	<script src="js/myapp.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="MyCtrl">
+	<form ng-submit="requestSummoner()">
+		<input type="text" name="summoner_name" ng-model="summoner_name" required="required">
+		<select name="region" id="region" ng-model="region">
+			<option value="na1">NA</option>
+			<option value="euw1">EUW</option>
+			<option value="eune1">EUNE</option>
+			<option value="br1">BR</option>
+			<option value="ru">RU</option>
+			<option value="kr">KR</option>
+			<option value="oc1">OC</option>
+			<option value="la1">LAN</option>
+			<option value="la2">LAS</option>
+			<option value="jp1">JPN</option>
+			<option value="tr1">TR</option>
+		</select>		
+		<input type="submit">
+	</form>
+	<p ng-cloak>{{summonerId}}</p>
+	<p ng-show="loading">Cargando</p>
+	<div ng-controller="ChampCtrl">
+		<div angucomplete-alt id="champAutocomplete" placeholder="Type your champ" pause="100" selected-object="afterSelectedChamp" local-data="Champs" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight" description-field="title" image-field="image.full" clear-selected="true"> 
+
+		</div>
+		<div ng-show="SelectedChamp">
+			Selected Champ : {{SelectedChamp.name}}
+		</div>
+	</div>
+</body>
+</html>
